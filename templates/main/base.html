@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="ko">
+    {% include 'main/head.html' %}
+    <body class="scroll" data-spy="scroll" data-target="#navbar" class="static-layout">
+        {% include 'main/header.html' %}
+        {% block content %}
+
+        {% endblock %}
+
+        {% include 'main/footer.html' %}
+    </body>
+</html>

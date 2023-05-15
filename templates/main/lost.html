@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url({% static 'img/background.png' %})">
+      <div class="container text-center">
+        <h1 class="display-2 mb-4" style="text-shadow: 0 0 black;">분실물</h1>
+      </div>
+    </div>	<!-- Blog Section -->
+    <section id="blog" class="bg-grey">
+    <div class="container">
+        <div class="section-content">
+            <div class="title-wrap mb-5" data-aos="fade-up">
+                <h2 class="section-title" style="color: #585858">주인을 찾습니다!</h2>
+                <p class="section-sub-title" style="color: #585858">습득된 분실물과 보관 중인 장소를 확인하실 수 있어요.</p>
+            </div>
+            <div class="row">
+                {% for list in postList %}
+                  <div class="col-md-4 blog-item-wrapper" data-aos="fade-up">
+                    <div class="blog-item">
+                                <div class="blog-img">
+                                    <a href="#">
+                                        {% if list.mainPhoto %}
+                                            <img src ="{{ list.mainPhoto.url }}" alt="">
+                                        {% endif %}</a>
+                                </div>
+                                <div class="blog-text">
+                                    <div class="blog-tag">
+                                        <a href="#"><h6><small>{{ list.contents }}</small></h6></a>
+                                    </div>
+                                    <div class="blog-title">
+                                        <a href="#"><h4>{{ list.postname }}</h4></a>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+              {% endfor %}
+<!-- End of Features Section-->
+{% endblock %}
